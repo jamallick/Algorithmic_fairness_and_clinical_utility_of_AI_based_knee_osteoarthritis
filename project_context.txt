@@ -1,0 +1,68 @@
+project_name: Algorithmic_fairness_and_clinical_utility_of_AI_based_knee_osteoarthritis
+package_name: knee_fairness
+confidence: HIGH
+source: title page
+
+domain: musculoskeletal medical imaging, ordinal knee osteoarthritis grading fairness audit
+confidence: HIGH
+source: abstract and Methods sections 4.1 through 4.4
+
+framework: PyTorch 2.1 with torch.nn
+confidence: HIGH
+source: Methods section 4.3 states PyTorch 2.1 for Ensemble PIM validation
+
+venue: npj Digital Medicine manuscript format
+confidence: MEDIUM
+source: provided manuscript filename and Nature-style structured sections
+
+supplementary_material: embedded Supplementary Tables S1 through S20 in the main PDF
+confidence: HIGH
+source: manuscript pages 24 through 31
+
+primary_dataset_1: Osteoarthritis Initiative
+participants: 4796
+baseline_knees_after_exclusions: 8892
+visits: V00, V01, V03, V06, V10
+access: registration controlled
+source: Methods section 4.2
+
+primary_dataset_2: Multicenter Osteoarthritis Study
+participants: 3026
+visits: baseline, 15, 30, 60, 84 months
+access: registration controlled
+source: Methods section 4.2
+
+compute_target: COMPUTE_NOT_REPORTED
+gpu_type: not reported
+gpu_count: not reported
+vram: not reported
+wall_clock: not reported
+storage: not reported
+source: Methods section 4.3 and full manuscript search
+
+hparams_reference: not reported as a complete set
+batch_size: not reported
+learning_rate: not reported
+epochs: not reported
+warmup: not reported
+weight_decay: not reported
+optimizer: not reported
+scheduler: not reported
+precision: not reported
+gradient_clipping: not reported
+ema: not reported
+seed_count: three
+source: Methods section 4.3
+
+equations: 10
+fairness_metrics: EOR, EOD, DPD, CD, WGG, FNRD, ODI
+clinical_metrics: DCA, NRI
+statistical_resampling: 1000 bootstrap resamples and 10000 permutations
+minimum_cell_size: 30
+multiple_testing: Bonferroni-Holm primary and Benjamini-Hochberg exploratory
+source: Methods sections 4.4 through 4.8
+
+code_availability: omitted from README by request
+released_weights: DeepKnee weights reported available in its source repository
+fairness_ethics: race is a social rather than biological stratifier
+privacy: source cohorts are de-identified and no direct identifiers belong in manifests

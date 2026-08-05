@@ -1,0 +1,22 @@
+seed: 7
+model: siamese
+num_classes: 5
+image_size: 32
+batch_size: 4
+epochs: 1
+learning_rate: 0.001
+weight_decay: 0.0
+optimizer: adamw
+scheduler: constant
+warmup_epochs: 0
+grad_clip_norm: 1.0
+precision: fp32
+workers: 0
+bootstrap_resamples: 20
+permutation_resamples: 20
+calibration_bins: 5
+minimum_cell_size: 2
+test_fraction: 0.2
+validation_fraction: 0.1
+paper_training_parameters_reported: false
+

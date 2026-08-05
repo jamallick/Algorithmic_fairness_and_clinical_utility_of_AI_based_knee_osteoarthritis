@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools==75.8.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "knee-fairness-audit"
+version = "1.0.0"
+description = "Demographic fairness and clinical utility audit for ordinal knee osteoarthritis grading"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy==1.26.4",
+  "pandas==2.2.3",
+  "Pillow==11.1.0",
+  "PyYAML==6.0.2",
+  "scikit-learn==1.6.1",
+  "scipy==1.15.1",
+  "torch==2.1.2",
+  "torchvision==0.16.2"
+]
+
+[project.optional-dependencies]
+dev = ["mypy==1.14.1", "pytest==8.3.4", "ruff==0.9.6"]
+
+[project.scripts]
+knee-fairness-train = "knee_fairness.cli.train:main"
+knee-fairness-evaluate = "knee_fairness.cli.evaluate:main"
+
+[tool.setuptools]
+package-dir = {"" = "code"}
+
+[tool.setuptools.packages.find]
+where = ["code"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["knee_fairness"]
+mypy_path = "code"
